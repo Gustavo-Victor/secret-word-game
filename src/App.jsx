@@ -82,11 +82,14 @@ export default function App() {
   useEffect(() => {
     const uniqueLetters = [...new Set(letters)]
 
-    if (guessedLetters.length == uniqueLetters.length) {
-      setScore(prevState => prevState + 100);
-      setAttempts(numAttempts);
-      startGame();
+    if(guessedLetters.length != 0 && uniqueLetters.length != 0) {
+      if (guessedLetters.length == uniqueLetters.length) {
+        setScore(prevState => prevState + 100);
+        setAttempts(numAttempts);
+        startGame();
+      }
     }
+
   }, [guessedLetters, letters, startGame]);
 
 
